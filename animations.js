@@ -1,0 +1,5 @@
+window.IN2ITION_ANIM={
+particles(x=innerWidth/2,y=innerHeight/2,count=30){for(let i=0;i<count;i++){let e=document.createElement("span");e.className="particle";e.textContent=["✦","•","✧","◆","★"][i%5];e.style.left=x+"px";e.style.top=y+"px";e.style.setProperty("--x",(Math.random()*280-140)+"px");e.style.setProperty("--y",(Math.random()*-280-40)+"px");e.style.fontSize=(8+Math.random()*14)+"px";document.body.appendChild(e);setTimeout(()=>e.remove(),950)}},
+trophy(){let r=document.querySelector(".result-badge");if(r)r.animate([{transform:"scale(.2) rotate(-25deg)",opacity:0},{transform:"scale(1.18) rotate(8deg)",opacity:1},{transform:"scale(1) rotate(0)"}],{duration:800,easing:"cubic-bezier(.2,.9,.2,1)"});this.particles()},
+reveal(){let r=document.getElementById("revealImage");r.animate([{transform:"rotateY(90deg) scale(.8)",opacity:0},{transform:"rotateY(0) scale(1)",opacity:1}],{duration:650});this.particles(innerWidth/2,innerHeight/2,18)}
+};

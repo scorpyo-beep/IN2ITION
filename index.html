@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#17152b">
+<meta name="description" content="IN2ITION — Think it. Type it. Reveal it.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon.svg">
+<link rel="stylesheet" href="style.css">
+<title>IN2ITION</title>
+</head>
+<body>
+<header class="topbar">
+<button class="icon-btn" id="homeBtn">⌂</button>
+<div class="brand">IN<b>2</b>ITION</div>
+<button class="icon-btn" id="themeBtn">☾</button>
+</header>
+
+<main>
+<section id="homeScreen" class="screen active">
+<div class="hero">
+<div class="logo-mark">IN<span>2</span>ITION</div>
+<p>Think it. Type it. Reveal it.</p>
+<button class="primary big" id="playBtn">PLAY</button>
+<div class="quick-stats">
+<div><strong id="homePoints">0</strong><small>POINTS</small></div>
+<div><strong id="homeBadges">0</strong><small>BADGES</small></div>
+<div><strong id="homeTrophies">0</strong><small>TROPHIES</small></div>
+</div>
+</div>
+<div class="home-grid">
+<button class="menu-card" data-screen="achievementsScreen"><span>🏆</span><b>Achievements</b><small>Collect them all</small></button>
+<button class="menu-card" data-screen="leaderboardScreen"><span>🥇</span><b>Leaderboards</b><small>Points & time</small></button>
+<button class="menu-card" data-screen="challengeScreen"><span>⚡</span><b>Challenges</b><small>Daily & weekly</small></button>
+<button class="menu-card" data-screen="settingsScreen"><span>⚙️</span><b>Settings</b><small>Themes & options</small></button>
+</div>
+</section>
+
+<section id="categoryScreen" class="screen">
+<div class="section-head"><h1>Choose your challenge</h1><p>Choose categories in any order. <b>Random is always the final challenge.</b></p></div>
+<div class="category-grid">
+<button class="category-card numbers" data-category="Numbers"><span>🔢</span><b>Numbers</b><small>Easy • Medium • Hard</small></button>
+<button class="category-card colours" data-category="Colours"><span>🎨</span><b>Colours</b><small>Easy • Medium • Hard</small></button>
+<button class="category-card animals" data-category="Animals"><span>🐾</span><b>Animals</b><small>Easy • Medium • Hard</small></button>
+<button class="category-card random" data-category="Random"><span>🎲</span><b>Random</b><small>3 HARD clues</small></button>
+</div>
+<div id="categoryProgress" class="category-progress"></div>
+</section>
+
+<section id="gameScreen" class="screen">
+<div class="game-head">
+<div><b id="gameCategory">Animals</b><small id="gameDifficulty">EASY</small></div>
+<div class="score-pill">⭐ <span id="gameScore">0</span></div>
+<div class="timer-pill">⏱ <span id="gameTimer">0.0</span></div>
+</div>
+<div class="progress-line"><div id="gameProgress"></div></div>
+<div class="clue-card">
+<div class="clue-label">CLUE</div>
+<h2 id="clueText">Loading...</h2>
+<p id="hintText" class="hint"></p>
+</div>
+<div id="answerArea" class="answer-area">
+<input id="answerInput" autocomplete="off" placeholder="Type your guess...">
+<button class="primary" id="submitBtn">GUESS</button>
+<button class="hint-btn" id="hintBtn">💡 HINT</button>
+<p id="feedback" class="feedback"></p>
+</div>
+<div id="revealArea" class="reveal-area hidden">
+<div id="revealImage" class="reveal-image"></div>
+<div class="correct">✓ CORRECT!</div>
+<h2 id="revealAnswer"></h2>
+<p id="earnedPoints"></p>
+<button class="primary" id="nextBtn">NEXT →</button>
+</div>
+</section>
+
+<section id="resultScreen" class="screen">
+<div id="resultBadge" class="result-badge">🏆</div>
+<h1 id="resultTitle">Category Complete!</h1>
+<p id="resultMessage"></p>
+<div class="result-stats">
+<div><strong id="resultPoints">0</strong><small>POINTS</small></div>
+<div><strong id="resultTime">0s</strong><small>TIME</small></div>
+<div><strong id="resultCorrect">0/3</strong><small>CORRECT</small></div>
+</div>
+<button class="primary big" id="continueBtn">CONTINUE</button>
+</section>
+
+<section id="achievementsScreen" class="screen">
+<div class="section-head"><h1>Achievements</h1><p>Collect every badge.</p></div>
+<div id="achievementGrid" class="achievement-grid"></div>
+</section>
+
+<section id="leaderboardScreen" class="screen">
+<div class="section-head"><h1>Leaderboards</h1><p>Local scores in this prototype. Online Play Games leaderboards can be added later.</p></div>
+<div class="tabs"><button class="tab active" data-board="points">POINTS</button><button class="tab" data-board="time">TIME</button></div>
+<div id="leaderboardList"></div>
+</section>
+
+<section id="challengeScreen" class="screen">
+<div class="section-head"><h1>Challenges</h1><p>Come back every day and every week.</p></div>
+<div class="challenge-card"><span>⚡</span><h2>Daily Challenge</h2><p>Three clues — Numbers, Colours and Animals.</p><button class="primary" id="dailyBtn">PLAY DAILY</button></div>
+<div class="challenge-card"><span>🔥</span><h2>Weekly Challenge</h2><p>Complete 9 clues this week to earn the Weekly Master badge.</p><button class="secondary" id="weeklyBtn">PLAY WEEKLY</button></div>
+</section>
+
+<section id="settingsScreen" class="screen">
+<div class="section-head"><h1>Settings</h1><p>Make IN2ITION yours.</p></div>
+<div class="settings-list">
+<button id="themeCycle">🎨 Change Theme <span id="themeName">Neon Night</span></button>
+<button id="soundToggle">🔊 Sound <span id="soundState">ON</span></button>
+<button id="resetData">♻️ Reset Local Progress</button>
+</div>
+<div class="about"><b>IN2ITION</b><br>Think it. Type it. Reveal it.<br><small>Version 1.0 prototype</small></div>
+</section>
+</main>
+
+<nav class="bottom-nav" id="bottomNav">
+<button data-screen="homeScreen">⌂<small>Home</small></button>
+<button data-screen="categoryScreen">▶<small>Play</small></button>
+<button data-screen="achievementsScreen">🏆<small>Badges</small></button>
+<button data-screen="leaderboardScreen">🥇<small>Scores</small></button>
+</nav>
+<div id="toast" class="toast"></div>
+
+<script src="questions.js"></script>
+<script src="achievements.js"></script>
+<script src="animations.js"></script>
+<script src="leaderboard.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
